@@ -1,0 +1,7 @@
+node_modules
+.vscode
+.DS_Store
+.up_Dog
+
+.env
+img/.DS_Store
