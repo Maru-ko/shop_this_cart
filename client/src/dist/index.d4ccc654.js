@@ -2904,10 +2904,58 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
+var _data = require("../mockData/data");
+var _dataDefault = parcelHelpers.interopDefault(_data);
 const App = ()=>{
-    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", null, "Hello World!");
+    return /*#__PURE__*/ (0, _reactDefault.default).createElement("main", null, [
+        /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+            className: "product-listing"
+        }, [
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("h2", null, "products"),
+            (0, _dataDefault.default).map((product)=>{
+                return cartItem({
+                    key: product.id,
+                    title: product.title,
+                    price: product.price,
+                    quantity: product.quantity
+                });
+            })
+        ])
+    ]);
 };
 _c = App;
+const cartItem = ({ title , price , quantity  })=>{
+    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+        className: "product"
+    }, [
+        /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+            className: "product-details"
+        }, [
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("h3", null, title),
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("p", {
+                className: "price"
+            }, `$${price}`),
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("p", {
+                className: "quantity"
+            }, `${quantity} left in stock`),
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+                className: "actions product-actions"
+            }, [
+                /*#__PURE__*/ (0, _reactDefault.default).createElement("a", {
+                    className: "button add-to-cart"
+                }, "Add to Cart"),
+                /*#__PURE__*/ (0, _reactDefault.default).createElement("a", {
+                    className: "button edit"
+                }, "Edit")
+            ]),
+            /*#__PURE__*/ (0, _reactDefault.default).createElement("a", {
+                className: "delete-button"
+            }, [
+                /*#__PURE__*/ (0, _reactDefault.default).createElement("span", null, "X")
+            ])
+        ])
+    ]);
+};
 const root = document.getElementById("root");
 (0, _clientDefault.default).createRoot(root).render(App());
 var _c;
@@ -2918,7 +2966,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"21dqq":[function(require,module,exports) {
+},{"react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../mockData/data":"8E3az"}],"21dqq":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react.development.js");
 
@@ -26388,6 +26436,36 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}]},["1xC6H","2Zx0p","8lqZg"], "8lqZg", "parcelRequire259a")
+},{"react-refresh/runtime":"786KC"}],"8E3az":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = [
+    {
+        id: 1,
+        title: "Amazon Kindle E-reader",
+        quantity: 5,
+        price: 79.99
+    },
+    {
+        id: 2,
+        title: "Apple 10.5-Inch iPad Pro",
+        quantity: 0,
+        price: 649.99
+    },
+    {
+        id: 3,
+        title: "Yamaha Portable Keyboard",
+        quantity: 2,
+        price: 155.99
+    },
+    {
+        id: 4,
+        title: "Tinker, Tailor, Soldier, Spy - A John le Carre Novel",
+        quantity: 12,
+        price: 13.74
+    }
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","2Zx0p","8lqZg"], "8lqZg", "parcelRequire259a")
 
 //# sourceMappingURL=index.d4ccc654.js.map
