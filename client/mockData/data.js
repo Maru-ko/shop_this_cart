@@ -22,11 +22,5 @@ export default [
     title: "Tinker, Tailor, Soldier, Spy - A John le Carre Novel",
     quantity: 12,
     price: 13.74
-  },
-  {
-    id: 5,
-    title: "Ruby on Rails",
-    quantity: 0,
-    price: 13.74
   }
 ];
