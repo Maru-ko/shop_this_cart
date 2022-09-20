@@ -1,7 +1,11 @@
+/node_modules
 node_modules
-.vscode
+# Ignore all SQLite databases
+db/*.sqlite3
 .DS_Store
-.up_Dog
-
+.DS_Store
+.up_DOG
+node_modules
+build
+.eslintrc.js
 .env
-img/.DS_Store
