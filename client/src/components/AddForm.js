@@ -1,18 +1,3 @@
-// function viewForm(event) {
-//   event.preventDefault();
-//   const element = document.querySelector(".add-form h3");
-//   const element2 = document.querySelector(".add-form form ");
-//   element.style.display = "block";
-//   element2.style.display = "block";
-// }
-
-// function hideForm(event) {
-//   event.preventDefault();
-//   const element = document.querySelector(".add-form h3");
-//   const element2 = document.querySelector(".add-form form ");
-//   element.style.display = "none";
-//   element2.style.display = "none";
-// }
 import { useState } from "react";
 // title price quantity
 const AddForm = ({ onSubmit }) => {
@@ -25,6 +10,12 @@ const AddForm = ({ onSubmit }) => {
     setShowForm(!showForm);
   }
 
+  const resetInputs = () => {
+    setTitle("");
+    setPrice("");
+    setQuantity("");
+  }
+
   const handleAddButton = (e) => {
     e.preventDefault();
     const priceInt = parseFloat(price).toFixed(2);
@@ -32,8 +23,10 @@ const AddForm = ({ onSubmit }) => {
     const newProduct = {
       title, price:priceInt, quantity:quantityInt,
     }
-    onSubmit(newProduct);
+    onSubmit(newProduct, resetInputs);
+
   }
+
 
   return (
     <div className = { showForm ? "add-form visible" : "add-form" }>

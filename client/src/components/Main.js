@@ -1,5 +1,4 @@
 const axios = require("axios");
-// const { set } = require("mongoose");
 
 const { useState, useEffect } = require("react");
 let rawData = require("../../mockData/data");
@@ -17,10 +16,19 @@ const Main = () => {
     }
     getProducts();
   }, []);
-  const handleAddProduct = async (newProduct) => {
+
+  const handleAddProduct = async (newProduct, callback) => { // try/catch
     const returnedProduct = await axios.post("/api/products", newProduct);
     setProducts(products.concat(returnedProduct.data));
+    if (callback) { // \*contingent on request //chain calls
+      callback();
+    }
   }
+
+
+  // const handleEditProduct
+  
+  
   return (
     <main>
       <Products products={products} />
