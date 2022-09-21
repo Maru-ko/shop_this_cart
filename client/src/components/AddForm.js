@@ -22,8 +22,10 @@ const AddForm = () => {
     setShowForm(!showForm);
   }
   return (
-    <div className="add-form">
-      <p><a className="button add-product-button" onClick={viewForm}>Add A Product</a></p>
+    <div className = { showForm ? "add-form visible" : "add-form" }>
+      <p>
+        <a className="button add-product-button" onClick={toggleForm}>Add A Product</a>
+        </p>
       <h3>Add Product</h3>
       <form>
         <div className="input-group">
@@ -43,7 +45,7 @@ const AddForm = () => {
 
         <div className="actions form-actions">
           <a className="button">Add</a>
-          <a className="button" onClick={hideForm}>Cancel</a>
+          <a className="button" onClick={toggleForm}>Cancel</a>
         </div>
       </form>
     </div>

@@ -1,7 +1,9 @@
 import React from "react";
- import Header from "./Header";
+import Header from "./Header";
 import Main from "./Main";
+
 const App = () => {
+
   return(
     <div id="app">
       <Header />
@@ -9,5 +11,5 @@ const App = () => {
     </div>
   )
 }
-
+//
 module.exports = App;
