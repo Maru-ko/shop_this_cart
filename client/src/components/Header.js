@@ -1,13 +1,15 @@
- const Header = () => {
+ const Cart = require("./Cart");
+ const Header = ({ cart }) => {
   return (
     <header>
-      <h1>Shopt This!</h1>
-      <div class="cart">
+      <h1>Suandaland Shop!</h1>
+      <Cart cart={cart}/>
+      {/* <div className="cart">
         <h2>Your cart</h2>
         <p>Your cart is empty</p>
         <p>Total: $0</p>
-        <a class="button checkout disabled">Checkout</a>
-      </div>
+        <a className="button checkout disabled">Checkout</a>
+      </div> */}
     </header>
   );
 }

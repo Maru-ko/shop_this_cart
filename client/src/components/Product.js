@@ -2,7 +2,7 @@ const { useState, useEffect } = require('react');
 const EditForm = require('./EditForm');
 
 
-const Product = ({product}) => {
+const Product = ({product, onClickUpdate, onClickDelete, onClickAddToCart}) => {
   const [ outOfStock, setOutOfStock ] = useState(false);
   const [ showEditForm, setShowEditForm ] = useState(false);
   
@@ -20,10 +20,19 @@ const Product = ({product}) => {
   }
 
   const hideEditForm = (e) => {
-    e.preventDefault();
+    e ? e.preventDefault() : null;
     setShowEditForm(false);
   }
 
+  const handleDeleteProduct = (e) => {
+    e.preventDefault();
+    onClickDelete(product);
+  }
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    onClickAddToCart(product);
+  }
   return(
     <div className="product">
       <div className="product-details">
@@ -31,11 +40,11 @@ const Product = ({product}) => {
         <p className="price">${product.price}</p>
         <p className="quantity">{product.quantity} left in stock</p>
         <div className="actions product-actions">
-          <a className={ `button add-to-cart ${ outOfStock ? "disabled": "" }` }>Add to Cart</a>
+          <a className={ `button add-to-cart ${ outOfStock ? "disabled": "" }` } onClick={handleAddToCart}>Add to Cart</a>
           <a className="button edit" onClick={viewEditForm}>Edit</a>
-          {showEditForm ? <EditForm onClickCancel={ hideEditForm } product={ product }/> : <></>}
+          {showEditForm ? <EditForm onClickCancel={ hideEditForm } product={ product } onClickUpdate={onClickUpdate}/> : <></>}
         </div>
-        <a className="delete-button"><span>X</span></a>
+        <a className="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
       </div>
 
       

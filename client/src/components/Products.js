@@ -1,5 +1,6 @@
 import Product from "./Product";
-const Products = ({products}) => {
+const Products = ({products, onClickUpdate, onClickDelete, setCart, onClickAddToCart }) => {
+  
   products.sort((a, b) => {
     return b.quantity - a.quantity;
   });
@@ -7,7 +8,14 @@ const Products = ({products}) => {
     <div className="product-listing">
       <h2>Products</h2>
       {products.map(product => (
-        <Product key={product.id} product={product}/>
+        <Product
+          key={product._id}
+          product={product}
+          onClickUpdate={onClickUpdate}
+          onClickDelete={onClickDelete}
+          setCart={setCart}
+          onClickAddToCart={onClickAddToCart}
+        />
       ))}
     </div>
   );

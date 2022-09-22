@@ -14,6 +14,7 @@ const AddForm = ({ onSubmit }) => {
     setTitle("");
     setPrice("");
     setQuantity("");
+    toggleForm();
   }
 
   const handleAddButton = (e) => {
@@ -36,21 +37,21 @@ const AddForm = ({ onSubmit }) => {
       <h3>Add Product</h3>
       <form>
         <div className="input-group">
-          <label for="product-name">Product Name</label>
+          <label htmlFor="product-name">Product Name</label>
           <input type="text" id="product-name" value={ title } onChange={(event) => {
             setTitle(event.target.value);
           } }/>
         </div>
 
         <div className="input-group">
-          <label for="product-price">Price</label>
+          <label htmlFor="product-price">Price</label>
           <input type="text" id="product-price" value={ price } onChange={(event) => {
             setPrice(event.target.value);
           }}/>
         </div>
 
         <div className="input-group">
-          <label for="product-quantity">Quantity</label>
+          <label htmlFor="product-quantity">Quantity</label>
           <input type="text" id="product-quantity" value={ quantity } onChange={(event) => {
             setQuantity(event.target.value);
           }}/>
