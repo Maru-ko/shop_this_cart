@@ -8,8 +8,6 @@ product component be responsible for fetching the products
 const App = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
-  console.log(cart);
-  console.log(products);
   useEffect(() => {
     const getData = async() => {
       const response = await axios.get('/api/cart');

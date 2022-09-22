@@ -221,7 +221,7 @@ Updated product and item are returned wrapped in an object.
 #### 1.7.2.1. Example Response
 
 ```json
-{ "product": {
+{ "product": 
   {
     "_id": "51d754d72092473333a809e1",
     "title": "Mac Mini",
