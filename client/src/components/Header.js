@@ -1,7 +1,7 @@
  const Header = () => {
   return (
     <header>
-      <h1>The Shop!</h1>
+      <h1>Shopt This!</h1>
       <div class="cart">
         <h2>Your cart</h2>
         <p>Your cart is empty</p>

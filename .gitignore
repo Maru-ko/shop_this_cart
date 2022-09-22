@@ -1,10 +1,12 @@
 /node_modules
+/.parcel-cache
 # Ignore all SQLite databases
 db/*.sqlite3
-.DS_Store
 .DS_Store
 .up_DOG
 node_modules
 build
 .eslintrc.js
 .env
+/client/.parcel-cache
+.parcel-cache
