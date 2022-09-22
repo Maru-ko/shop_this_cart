@@ -1,32 +1,51 @@
 const { useState } = require("react");
 
-const EditForm = ({ onClickCancel, product }) => {
+const EditForm = ({ onClickCancel, product, onClickUpdate }) => {
   const [ title, setTitle ] = useState(product.title);
   const [ price, setPrice ] = useState(product.price);
   const [ quantity, setQuantity ] = useState(product.quantity)
 
+  const reset = () => {
+    setTitle("");
+    setPrice("");
+    setQuantity("");
+    onClickCancel();
+  }
+
+  const handleUpdateButton = (event) => {
+    event.preventDefault();
+    const priceFloat = parseFloat(price).toFixed(2);
+    const quantityInt = parseInt(quantity);
+    const editedProduct = {
+      ...product,
+      title : title,
+      price : priceFloat,
+      quantity : quantityInt
+    }
+    onClickUpdate(editedProduct, reset);
+  }
   return (
-    <div class="edit-form">
+    <div className="edit-form">
       <h3>Edit Product</h3>
       <form>
-        <div class="input-group">
-          <label for="product-name">Product Name</label>
+        <div className="input-group">
+          <label htmlFor="product-name">Product Name</label>
           <input type="text" id="product-name" value={ title } onChange={ (e) => setTitle(e.target.value) } />
         </div>
 
-        <div class="input-group">
-          <label for="product-price">Price</label>
+        <div className="input-group">
+          <label  htmlFor="product-price">Price</label>
           <input type="text" id="product-price" value={ price } onChange={ (e) => setPrice(e.target.value) }/>
         </div>
 
-        <div class="input-group">
-          <label for="product-quantity">Quantity</label>
+        <div className="input-group">
+          <label htmlFor="product-quantity">Quantity</label>
           <input type="text" id="product-quantity" value={ quantity } onChange={ (e) => setQuantity(e.target.value) }/>
         </div>
 
-        <div class="actions form-actions">
-          <a class="button">Update</a>
-          <a class="button" onClick={ onClickCancel }>Cancel</a>
+        <div className="actions form-actions">
+          <a className="button" onClick={handleUpdateButton}>Update</a>
+          <a className="button" onClick={ onClickCancel }>Cancel</a>
         </div>
       </form>
     </div>

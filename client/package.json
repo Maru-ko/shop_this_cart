@@ -16,6 +16,7 @@
     "react-hooks": "^1.0.1"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
