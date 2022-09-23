@@ -27517,7 +27517,6 @@ $parcel$ReactRefreshHelpers$df57.prelude(module);
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const axios = require("axios");
-const { useState , useEffect  } = require("react");
 let rawData = require("../../mockData/data");
 rawData = rawData.default;
 const AddForm = require("./AddForm");
@@ -27533,20 +27532,20 @@ const Main = ({ onClickUpdateProduct , onClickDeleteProduct , onClickAddProduct 
                 onClickAddToCart: onClickAddToCart
             }, void 0, false, {
                 fileName: "src/components/Main.js",
-                lineNumber: 19,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AddForm, {
                 onSubmit: onClickAddProduct
             }, void 0, false, {
                 fileName: "src/components/Main.js",
-                lineNumber: 26,
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Main.js",
-        lineNumber: 18,
+        lineNumber: 17,
         columnNumber: 5
     }, undefined);
 };
@@ -27560,7 +27559,7 @@ $RefreshReg$(_c, "Main");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","../../mockData/data":"8E3az","./AddForm":"9FxpF","./Products":"4kQdn","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","../../mockData/data":"8E3az","./AddForm":"9FxpF","./Products":"4kQdn","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -31043,8 +31042,34 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _product = require("./Product");
 var _productDefault = parcelHelpers.interopDefault(_product);
+var _useAsync = require("../hooks/useAsync");
+var _useAsyncDefault = parcelHelpers.interopDefault(_useAsync);
+var _s = $RefreshSig$();
 const Products = ({ products , onClickUpdate , onClickDelete , setCart , onClickAddToCart  })=>{
-    products.sort((a, b)=>{
+    _s();
+    const { data: serverProducts , isError: isErrorProducts , isLoading: isLoadingProducts  } = (0, _useAsyncDefault.default)("GET", "/api/products");
+    if (isLoadingProducts) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        children: "Products are loading, chill out"
+    }, void 0, false, {
+        fileName: "src/components/Products.js",
+        lineNumber: 8,
+        columnNumber: 12
+    }, undefined);
+    else if (isErrorProducts) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        children: "The server will not respond, check your server"
+    }, void 0, false, {
+        fileName: "src/components/Products.js",
+        lineNumber: 10,
+        columnNumber: 12
+    }, undefined);
+    else if (serverProducts === "") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        children: "server call hasn't started"
+    }, void 0, false, {
+        fileName: "src/components/Products.js",
+        lineNumber: 12,
+        columnNumber: 12
+    }, undefined);
+    serverProducts.sort((a, b)=>{
         return b.quantity - a.quantity;
     });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -31054,7 +31079,7 @@ const Products = ({ products , onClickUpdate , onClickDelete , setCart , onClick
                 children: "Products"
             }, void 0, false, {
                 fileName: "src/components/Products.js",
-                lineNumber: 9,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
@@ -31065,16 +31090,21 @@ const Products = ({ products , onClickUpdate , onClickDelete , setCart , onClick
                     onClickAddToCart: onClickAddToCart
                 }, product._id, false, {
                     fileName: "src/components/Products.js",
-                    lineNumber: 11,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/Products.js",
-        lineNumber: 8,
+        lineNumber: 20,
         columnNumber: 5
     }, undefined);
 };
+_s(Products, "kugT685x/wszSPncYjQQWGPCmg0=", false, function() {
+    return [
+        (0, _useAsyncDefault.default)
+    ];
+});
 _c = Products;
 module.exports = Products;
 var _c;
@@ -31085,7 +31115,7 @@ $RefreshReg$(_c, "Products");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Product":"8VNuK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8VNuK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Product":"8VNuK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../hooks/useAsync":"4fgc2"}],"8VNuK":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5065 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31411,6 +31441,83 @@ $RefreshReg$(_c, "EditForm");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","awEvQ","bB7Pu"], "bB7Pu", "parcelRequire259a")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4fgc2":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5b58 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5b58.prelude(module);
+
+try {
+var _s = $RefreshSig$();
+const { default: axios  } = require("axios");
+const { useReducer , useEffect  } = require("react");
+const initialState = {
+    data: "",
+    isLoading: false,
+    isError: false
+};
+const dispatchEvent = (state, action)=>{
+    switch(action.type){
+        case "FETCH_INIT":
+            return {
+                ...initialState,
+                isLoading: true
+            };
+        case "FETCH_ERROR":
+            return {
+                ...initialState,
+                isError: true
+            };
+        case "FETCH_SUCCESS":
+            return {
+                ...initialState,
+                data: action.payload
+            };
+        default:
+            return state;
+    }
+};
+const useAsync = (method, url)=>{
+    _s();
+    const [state, dispatch] = useReducer(dispatchEvent, initialState);
+    useEffect(()=>{
+        if (!url) return;
+        const fetchData = async ()=>{
+            dispatch({
+                type: "FETCH_INIT"
+            });
+            switch(method){
+                case "GET":
+                    axios.get(url).then((response)=>{
+                        console.log({
+                            data: response.data
+                        });
+                        dispatch({
+                            type: "FETCH_SUCCESS",
+                            payload: response.data
+                        });
+                    }).catch((e)=>{
+                        console.error(e.message);
+                        dispatch({
+                            type: "FETCH_ERROR"
+                        });
+                    });
+            }
+        };
+        fetchData();
+    }, [
+        url
+    ]);
+    return state;
+};
+_s(useAsync, "bgCdjuTOmPdSBRwTap80EFd9Y3U=");
+module.exports = useAsync;
+
+  $parcel$ReactRefreshHelpers$5b58.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","awEvQ","bB7Pu"], "bB7Pu", "parcelRequire259a")
 
 //# sourceMappingURL=index.3d214d75.js.map

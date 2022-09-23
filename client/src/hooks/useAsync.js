@@ -11,23 +11,25 @@ const dispatchEvent = (state, action) => {
   switch (action.type) {
     case "FETCH_INIT": 
       return {
-        ...state,
+        ...initialState,
         isLoading: true
       }
     case "FETCH_ERROR":
       return {
-        ...state,
+        ...initialState,
         isError: true
       }
     case "FETCH_SUCCESS":
       return {
-        ...state,
+        ...initialState,
         data: action.payload
       }
+    default:
+      return state;
   }
 }
 const useAsync = (method, url) => {
-  const [state, dispatch] = useReducer(initialState, dispatchEvent);
+  const [state, dispatch] = useReducer(dispatchEvent, initialState);
 
   useEffect(() => {
     if (!url) {
@@ -35,19 +37,21 @@ const useAsync = (method, url) => {
     }
 
     const fetchData = async() => {
-      dispatch(initialState, {type: "FETCH_INIT"});
+      dispatch({type: "FETCH_INIT"});
       switch (method) {
         case "GET":
-          const response = await axios.get(url);
-          response.then(response => {
-            console.log(response.data);
-            dispatch(initialState, {type: "FETCH_SUCCESS", payload: response.data});
+          axios.get(url).then(response => {
+            console.log({data: response.data});
+            dispatch({type: "FETCH_SUCCESS", payload: response.data});
           }).catch(e => {
             console.error(e.message);
-            dispatch(initialState, {type: "FETCH_ERROR"});
+            dispatch({type: "FETCH_ERROR"});
           })
       }
     }
     fetchData();
   }, [url]);
+  return state;
 }
+
+module.exports = useAsync;

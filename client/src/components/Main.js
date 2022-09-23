@@ -1,6 +1,5 @@
 const axios = require("axios");
 
-const { useState, useEffect } = require("react");
 let rawData = require("../../mockData/data");
 rawData = rawData.default;
 const AddForm = require("./AddForm");
