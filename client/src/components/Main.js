@@ -11,17 +11,8 @@ const Main = ({
     onClickDeleteProduct,
     onClickAddProduct,
     products,
-    setProducts,
     setCart,
     onClickAddToCart}) => {
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const initialProducts = await axios.get("/api/products");
-      setProducts(initialProducts.data)
-    }
-    getProducts();
-  }, []);
   
   return (
     <main>

@@ -2,26 +2,29 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import axios from "axios";
-/*
-product component be responsible for fetching the products
-*/
 const App = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [checkedOut, setCheckedOut] = useState(false);
+
   useEffect(() => {
     setCheckedOut(false);
     const getData = async() => {
       const response = await axios.get('/api/cart');
       setCart(response.data);
     };
+    const getProducts = async () => {
+      const initialProducts = await axios.get("/api/products");
+      setProducts(initialProducts.data)
+    }
+    getProducts();
     getData();
   }, [checkedOut]);
 
-  const handleAddProduct = async (newProduct, callback) => { // try/catch
+  const handleAddProduct = async (newProduct, callback) => {
     const returnedProduct = await axios.post("/api/products", newProduct);
     setProducts(products.concat(returnedProduct.data));
-    if (callback) { // \*contingent on request //chain calls
+    if (callback) {
       callback();
     }
   }

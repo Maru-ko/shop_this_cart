@@ -27091,9 +27091,7 @@ var _mainDefault = parcelHelpers.interopDefault(_main);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
-/*
-product component be responsible for fetching the products
-*/ const App = ()=>{
+const App = ()=>{
     _s();
     const [cart, setCart] = (0, _react.useState)([]);
     const [products, setProducts] = (0, _react.useState)([]);
@@ -27104,6 +27102,11 @@ product component be responsible for fetching the products
             const response = await (0, _axiosDefault.default).get("/api/cart");
             setCart(response.data);
         };
+        const getProducts = async ()=>{
+            const initialProducts = await (0, _axiosDefault.default).get("/api/products");
+            setProducts(initialProducts.data);
+        };
+        getProducts();
         getData();
     }, [
         checkedOut
@@ -27149,7 +27152,7 @@ product component be responsible for fetching the products
                 onClickCheckout: handleCheckout
             }, void 0, false, {
                 fileName: "src/components/App.js",
-                lineNumber: 67,
+                lineNumber: 70,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainDefault.default), {
@@ -27162,13 +27165,13 @@ product component be responsible for fetching the products
                 onClickAddToCart: handleAddToCart
             }, void 0, false, {
                 fileName: "src/components/App.js",
-                lineNumber: 68,
+                lineNumber: 71,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/App.js",
-        lineNumber: 66,
+        lineNumber: 69,
         columnNumber: 5
     }, undefined);
 };
@@ -27513,22 +27516,13 @@ $parcel$ReactRefreshHelpers$df57.prelude(module);
 
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _s = $RefreshSig$();
 const axios = require("axios");
 const { useState , useEffect  } = require("react");
 let rawData = require("../../mockData/data");
 rawData = rawData.default;
 const AddForm = require("./AddForm");
 const Products = require("./Products");
-const Main = ({ onClickUpdateProduct , onClickDeleteProduct , onClickAddProduct , products , setProducts , setCart , onClickAddToCart  })=>{
-    _s();
-    useEffect(()=>{
-        const getProducts = async ()=>{
-            const initialProducts = await axios.get("/api/products");
-            setProducts(initialProducts.data);
-        };
-        getProducts();
-    }, []);
+const Main = ({ onClickUpdateProduct , onClickDeleteProduct , onClickAddProduct , products , setCart , onClickAddToCart  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Products, {
@@ -27539,24 +27533,23 @@ const Main = ({ onClickUpdateProduct , onClickDeleteProduct , onClickAddProduct 
                 onClickAddToCart: onClickAddToCart
             }, void 0, false, {
                 fileName: "src/components/Main.js",
-                lineNumber: 28,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AddForm, {
                 onSubmit: onClickAddProduct
             }, void 0, false, {
                 fileName: "src/components/Main.js",
-                lineNumber: 35,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Main.js",
-        lineNumber: 27,
+        lineNumber: 18,
         columnNumber: 5
     }, undefined);
 };
-_s(Main, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Main;
 module.exports = Main;
 var _c;
