@@ -12,7 +12,7 @@ const Product = ({product, onClickUpdate, onClickDelete, onClickAddToCart}) => {
     } else {
       setOutOfStock(false);
     }
-  }, []);
+  }, [product.quantity]);
 
   const viewEditForm = (e) => {
     e.preventDefault();
@@ -38,10 +38,16 @@ const Product = ({product, onClickUpdate, onClickDelete, onClickAddToCart}) => {
       <div className="product-details">
         <h3>{product.title}</h3>
         <p className="price">${product.price}</p>
-        <p className="quantity">{product.quantity} left in stock</p>
+        <p className={ `quantity ${ outOfStock ? "none-left": ""}` }>{product.quantity} left in stock</p>
         <div className="actions product-actions">
-          <a className={ `button add-to-cart ${ outOfStock ? "disabled": "" }` } onClick={handleAddToCart}>Add to Cart</a>
-          <a className="button edit" onClick={viewEditForm}>Edit</a>
+          {
+            showEditForm ? null : (
+            <>
+              <a className={ `button add-to-cart ${ outOfStock ? "disabled": "" }` } onClick={handleAddToCart}>Add to Cart</a>
+              <a className="button edit" onClick={viewEditForm}>Edit</a>
+            </>
+            )
+          }
           {showEditForm ? <EditForm onClickCancel={ hideEditForm } product={ product } onClickUpdate={onClickUpdate}/> : <></>}
         </div>
         <a className="delete-button" onClick={handleDeleteProduct}><span>X</span></a>

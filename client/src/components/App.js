@@ -8,13 +8,15 @@ product component be responsible for fetching the products
 const App = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
+  const [checkedOut, setCheckedOut] = useState(false);
   useEffect(() => {
+    setCheckedOut(false);
     const getData = async() => {
       const response = await axios.get('/api/cart');
       setCart(response.data);
     };
     getData();
-  }, []);
+  }, [checkedOut]);
 
   const handleAddProduct = async (newProduct, callback) => { // try/catch
     const returnedProduct = await axios.post("/api/products", newProduct);
@@ -54,13 +56,15 @@ const App = () => {
     } else {
       setCart(cart.concat(returnedItem));
     }
-
-
   }
 
+  const handleCheckout = async() => {
+    await axios.post('/api/checkout');
+    setCheckedOut(true);
+  }
   return(
     <div id="app">
-      <Header cart={cart} />
+      <Header cart={cart} onClickCheckout={handleCheckout} />
       <Main 
         setCart={setCart} 
         onClickAddProduct={handleAddProduct}

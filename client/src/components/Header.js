@@ -1,9 +1,9 @@
  const Cart = require("./Cart");
- const Header = ({ cart }) => {
+ const Header = ({ cart, onClickCheckout }) => {
   return (
     <header>
       <h1>Suandaland Shop!</h1>
-      <Cart cart={cart}/>
+      <Cart cart={cart} onClickCheckout={onClickCheckout}/>
       {/* <div className="cart">
         <h2>Your cart</h2>
         <p>Your cart is empty</p>

@@ -1,8 +1,12 @@
-const Cart = ({ cart }) => {
+const Cart = ({ cart, onClickCheckout }) => {
   const total = cart.reduce((accum, item) => {
     return accum + (item.price * item.quantity);
   }, 0).toFixed(2);
 
+  const handleCheckout = async(e) => {
+    e.preventDefault();
+    onClickCheckout();
+  }
   return (
     <div className="cart">
       <h2>Your Cart</h2>
@@ -17,7 +21,7 @@ const Cart = ({ cart }) => {
         <tbody>
           {cart.map(item => {
             return (
-              <tr>
+              <tr key={`${item._id}`}>
                 <td>{item.title}</td>
                 <td>{item.quantity}</td>
                 <td>{`$${item.price}`}</td>
@@ -31,7 +35,7 @@ const Cart = ({ cart }) => {
           </tr>
         </tfoot>
       </table>
-      <a className="button checkout">Checkout</a>
+      <a className="button checkout" onClick={handleCheckout}>Checkout</a>
     </div>
   )
 }
