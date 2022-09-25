@@ -2,7 +2,7 @@
  const Header = ({ cart, onClickCheckout }) => {
   return (
     <header>
-      <h1>Suandaland Shop!</h1>
+      <h1>Each & Everything!</h1>
       <Cart cart={cart} onClickCheckout={onClickCheckout}/>
       {/* <div className="cart">
         <h2>Your cart</h2>

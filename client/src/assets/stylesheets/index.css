@@ -17,7 +17,9 @@ header {
 }
 
 header {
-  background: #07575b;
+  /* background: #07575b; */
+  background: rgb(7,87,91);
+  background: linear-gradient(90deg, rgba(7,87,91,1) 0%, rgba(8,107,112,1) 52%, rgba(7,87,91,1) 100%);
   color: #fff;
   min-height: 200px;
   overflow: hidden;
