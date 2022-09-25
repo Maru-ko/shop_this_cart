@@ -27200,7 +27200,7 @@ const Header = ({ cart , onClickCheckout  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Suandaland Shop!"
+                children: "Each & Everything!"
             }, void 0, false, {
                 fileName: "src/components/Header.js",
                 lineNumber: 5,
@@ -31115,7 +31115,7 @@ $RefreshReg$(_c, "Products");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Product":"8VNuK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../hooks/useAsync":"4fgc2"}],"8VNuK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Product":"8VNuK","../hooks/useAsync":"4fgc2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8VNuK":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5065 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

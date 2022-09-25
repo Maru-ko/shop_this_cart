@@ -10,3 +10,5 @@ build
 .env
 /client/.parcel-cache
 .parcel-cache
+./client/parcel-cache
+client/parche-cache
