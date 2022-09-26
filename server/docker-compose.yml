@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    image: maelchan/shopthiscartserver
+    command: node index.js
+    ports:
+      - 5001:5001
+    environment:
+      DB: mongodb+srv://team8:vyYuchd5rV2QAb0k@team8.25ud4n8.mongodb.net/?retryWrites=true&w=majority
+  client:
+    image: maelchan/shopthiscartclient
+    command: npm run dev
+    ports:
+      - 1234:1234
+    environment:
+      NODE_ENV: production
