@@ -62,9 +62,9 @@ const App = () => {
   }
 
   const handleCheckout = async() => {
-    await axios.post('/api/checkout');
     setCheckedOut(true);
   }
+
   return(
     <div id="app">
       <Header cart={cart} onClickCheckout={handleCheckout} />

@@ -33,7 +33,7 @@ const AddForm = ({ onSubmit }) => {
     <div className = { showForm ? "add-form visible" : "add-form" }>
       <p>
         <a className="button add-product-button" onClick={toggleForm}>Add A Product</a>
-        </p>
+      </p>
       <h3>Add Product</h3>
       <form>
         <div className="input-group">
@@ -58,7 +58,7 @@ const AddForm = ({ onSubmit }) => {
         </div>
 
         <div className="actions form-actions">
-          <a className="button" onClick={ handleAddButton }>Add</a>
+          <a className="button" href="#" onClick={ handleAddButton }>Add</a>
           <a className="button" onClick={toggleForm}>Cancel</a>
         </div>
       </form>

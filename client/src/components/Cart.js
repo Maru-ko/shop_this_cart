@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Cart = ({ cart, onClickCheckout }) => {
   const total = cart.reduce((accum, item) => {
     return accum + (item.price * item.quantity);
@@ -5,8 +7,12 @@ const Cart = ({ cart, onClickCheckout }) => {
 
   const handleCheckout = async(e) => {
     e.preventDefault();
-    onClickCheckout();
+
+    await axios.post('/api/checkout');
+    onClickCheckout(true);
   }
+
+
   return (
     <div className="cart">
       <h2>Your Cart</h2>
@@ -35,7 +41,7 @@ const Cart = ({ cart, onClickCheckout }) => {
           </tr>
         </tfoot>
       </table>
-      <a className="button checkout" onClick={handleCheckout}>Checkout</a>
+      <a className="button checkout" href="#" onClick={handleCheckout}>Checkout</a>
     </div>
   )
 }
