@@ -1,0 +1,7 @@
+.git
+.gitignore
+node_modules/
+.parcel-cache
+dist
+dist/
+.parcel-cache/
