@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    image: "react-app"
+    ports:
+      - "1234:1234"
+    container_name: deez
+  # api:
+  #   image: "goodgolddeal/react-server"
+  #   ports:
+  #     - "5001:5001"
+  #   env_file: .env
+  #   container_name: shopping-cart-api
