@@ -1,1 +1,1 @@
-
+ShoppingCart is an e-commerce app that is powered by a database and built using React, MongoDB, Node.js, and Docker. The app is designed to provide users with a convenient and seamless shopping experience by storing and retrieving user data efficiently. With ShoppingCart, users can shop with confidence, knowing that the app is able to handle even high levels of traffic and demand thanks to its use of Docker. Overall, ShoppingCart is a reliable and user-friendly e-commerce app that utilizes the latest technologies to deliver a superior shopping experience.
